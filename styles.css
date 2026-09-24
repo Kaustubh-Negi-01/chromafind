@@ -1,0 +1,189 @@
+:root {
+    --primary-color: #0d9488; /* Teal */
+    --primary-hover: #0f766e;
+    --bg-color: #f8fafc;
+    --surface-color: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --focus-ring: rgba(13, 148, 136, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.app-header {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+}
+
+.app-header .tagline {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Main Layout */
+.app-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Search Section */
+.search-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.search-form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.input-group {
+    display: flex;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-right: none;
+    font-size: 1.1rem;
+    outline: none;
+    border-radius: 8px 0 0 8px;
+    transition: border-color 0.2s;
+}
+
+#search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: inset 0 0 0 2px var(--focus-ring);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 0 8px 8px 0;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Quick Picks */
+.quick-picks {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.quick-picks-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.chip {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.chip:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Results Section */
+.results-section {
+    position: relative;
+    min-height: 300px;
+}
+
+/* Essential part 1: Responsive CSS Grid */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.empty-state svg {
+    margin-bottom: 1rem;
+    color: var(--border-color);
+}
+
+.empty-state p {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Hide empty state when grid has cards (for future use) */
+.results-grid:not(:empty) + .empty-state {
+    display: none;
+}
