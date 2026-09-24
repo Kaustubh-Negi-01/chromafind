@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChromaFind - Discover the world in vibrant color</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-container">
+            <h1>ChromaFind</h1>
+            <p class="tagline">Discover the world in vibrant color.</p>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <section class="search-section">
+            <form id="search-form" class="search-form">
+                <div class="input-group">
+                    <label for="search-input" class="sr-only">Search for images</label>
+                    <input type="text" id="search-input" placeholder="Search for anything...">
+                    <button type="submit" id="search-button" class="btn-primary">Search</button>
+                </div>
+            </form>
+
+            <div class="quick-picks">
+                <span class="quick-picks-label">Suggestions:</span>
+                <button class="chip" type="button">Nature</button>
+                <button class="chip" type="button">Abstract</button>
+                <button class="chip" type="button">Architecture</button>
+                <button class="chip" type="button">Minimal</button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div id="results" class="results-grid">
+                <!-- Cards will be injected here later -->
+            </div>
+            
+            <div id="empty-state" class="empty-state">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <p>Search to see results</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
